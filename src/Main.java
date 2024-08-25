@@ -1,3 +1,6 @@
+import AdapterDesign.Adapter;
+import AdapterDesign.Json;
+import AdapterDesign.XMLConverter;
 import ChainOfResponsibility.Debugger;
 import ChainOfResponsibility.ErrorLog;
 import ChainOfResponsibility.information;
@@ -23,9 +26,12 @@ public class Main {
       /*  Notify nt = new WhatsappNotify(new TelegramNotify(new Notifier()));
         nt.send("Hey Product is available");*/
 
-        Delivery dl = new Box(Arrays.asList(new Product(100 , "Product1"),
+       /* Delivery dl = new Box(Arrays.asList(new Product(100 , "Product1"),
                 new Box(Arrays.asList(new Product(200 , "Product2") , new Product(500 , "Product3")))));
-        System.out.println(dl.getPrice());
+        System.out.println(dl.getPrice()); */
+
+        Adapter ad = new XMLConverter(new Json());
+        ad.convert("XML Obj");
 
     }
 }
