@@ -1,6 +1,10 @@
+import AbstractDesign.ShapeFactoryImpl;
 import AdapterDesign.Adapter;
 import AdapterDesign.Json;
 import AdapterDesign.XMLConverter;
+import AdvancedFactoryDesign.CircleFactory;
+import AdvancedFactoryDesign.RectangleFactory;
+import AdvancedFactoryDesign.ShapeFactory;
 import ChainOfResponsibility.Debugger;
 import ChainOfResponsibility.ErrorLog;
 import ChainOfResponsibility.information;
@@ -30,8 +34,17 @@ public class Main {
                 new Box(Arrays.asList(new Product(200 , "Product2") , new Product(500 , "Product3")))));
         System.out.println(dl.getPrice()); */
 
-        Adapter ad = new XMLConverter(new Json());
-        ad.convert("XML Obj");
+       /* Adapter ad = new XMLConverter(new Json());
+        ad.convert("XML Obj"); */
+
+       /* ShapeFactory sp = new ShapeFactoryImpl();
+        sp.getShape("Rectangle").draw();*/
+
+        ShapeFactory Sp = new CircleFactory();
+        Sp.getShape().draw();
+        ShapeFactory Sp2 = new RectangleFactory();
+        Sp2.getShape().draw();
+
 
     }
 }
