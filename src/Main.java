@@ -5,6 +5,8 @@ import AdapterDesign.XMLConverter;
 import AdvancedFactoryDesign.CircleFactory;
 import AdvancedFactoryDesign.RectangleFactory;
 import AdvancedFactoryDesign.ShapeFactory;
+import BuilderDesignPattern.Student;
+import BuilderDesignPattern.StudentBuilder;
 import ChainOfResponsibility.Debugger;
 import ChainOfResponsibility.ErrorLog;
 import ChainOfResponsibility.information;
@@ -40,11 +42,15 @@ public class Main {
        /* ShapeFactory sp = new ShapeFactoryImpl();
         sp.getShape("Rectangle").draw();*/
 
-        ShapeFactory Sp = new CircleFactory();
+       /* ShapeFactory Sp = new CircleFactory();
         Sp.getShape().draw();
         ShapeFactory Sp2 = new RectangleFactory();
-        Sp2.getShape().draw();
+        Sp2.getShape().draw(); */
 
+        StudentBuilder sb = new StudentBuilder();
+        Student st = sb.setName("ajit").setAge(25).setRollNumber(1).setAddress("jethana , Ajmer , Rajasthan").build();
+        System.out.println(st.getAddress());
+        System.out.println(st.getAge());
 
     }
 }
