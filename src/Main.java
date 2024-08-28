@@ -11,6 +11,10 @@ import ChainOfResponsibility.Debugger;
 import ChainOfResponsibility.ErrorLog;
 import ChainOfResponsibility.information;
 import ChainOfResponsibility.logger;
+import CommandDesignPatter.Invoker;
+import CommandDesignPatter.Light;
+import CommandDesignPatter.TurnOffCommand;
+import CommandDesignPatter.TurnOnCommand;
 import Composite.Box;
 import Composite.Delivery;
 import Composite.Product;
@@ -47,10 +51,16 @@ public class Main {
         ShapeFactory Sp2 = new RectangleFactory();
         Sp2.getShape().draw(); */
 
-        StudentBuilder sb = new StudentBuilder();
+       /* StudentBuilder sb = new StudentBuilder();
         Student st = sb.setName("ajit").setAge(25).setRollNumber(1).setAddress("jethana , Ajmer , Rajasthan").build();
         System.out.println(st.getAddress());
-        System.out.println(st.getAge());
-
+        System.out.println(st.getAge()); */
+        Invoker in = new Invoker(new TurnOnCommand(new Light()));
+        in.execute();
+        in.setCommand(new TurnOffCommand(new Light()));
+        in.execute();
+        in.undo();
+        in.undo();
+        in.undo();
     }
 }
