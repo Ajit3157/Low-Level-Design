@@ -19,6 +19,9 @@ import Composite.Box;
 import Composite.Delivery;
 import Composite.Product;
 import Decorator.*;
+import TemplateDesignPattern.DataParser;
+import TemplateDesignPattern.JSONParser;
+import TemplateDesignPattern.XMLParser;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -55,12 +58,17 @@ public class Main {
         Student st = sb.setName("ajit").setAge(25).setRollNumber(1).setAddress("jethana , Ajmer , Rajasthan").build();
         System.out.println(st.getAddress());
         System.out.println(st.getAge()); */
-        Invoker in = new Invoker(new TurnOnCommand(new Light()));
+       /* Invoker in = new Invoker(new TurnOnCommand(new Light()));
         in.execute();
         in.setCommand(new TurnOffCommand(new Light()));
         in.execute();
         in.undo();
         in.undo();
-        in.undo();
+        in.undo(); */
+
+        DataParser dt = new XMLParser();
+        dt.load();
+        dt = new JSONParser();
+        dt.load();
     }
 }
